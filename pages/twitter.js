@@ -1,4 +1,5 @@
 import styles from '../styles/Twitter.module.css'
+import Head from 'next/head'
 
 export const getStaticProps = async () => {
     const URL = 'https://top-trend.herokuapp.com/twitter/topTrends?id=1'
@@ -16,6 +17,10 @@ const Twitter = ({ data }) => {
     const place = (data[0] || {}).locations[0];
     return (
         <div>
+            <Head>
+                <title>Twitter | Top Trending Things</title>
+                <meta name="description" content="Top Trending Twitter Hastags" />
+            </Head>
             <h2>Twitter Trends Now</h2>
             <h3>Top Trending Twitter {place.name}</h3>
             <table className={styles.twitterTable}>
