@@ -1,6 +1,7 @@
 {
   "name": "toptrendingthings",
   "version": "0.1.0",
+  "homepage": "https://toptrendingthings.in",
   "private": true,
   "scripts": {
     "dev": "next dev",

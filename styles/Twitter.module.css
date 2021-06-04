@@ -1,0 +1,42 @@
+
+.trendListRow {
+    border: 1px solid #ccc;
+}
+
+.trendRank {
+    padding: 0px 10px;
+}
+
+.trendName {
+    color: blue;
+    font-size: medium;
+    font-weight: bold;
+    text-align: left;
+    cursor: pointer;
+}
+
+.trendVolume {
+    text-align: center;
+}
+
+.twitterTable {
+    border-collapse: collapse;
+    width: 100%;
+    border: 2px solid gainsboro;
+}
+
+.th {
+    text-align: left;
+    padding: 8px;
+}
+
+.trendListRow:nth-child(even) {
+    background-color: #f8eded57;
+}
+
+.twitterFooterNote {
+    text-align: initial;
+    border: 1px solid;
+    padding: 1rem;
+    color: rgba(0, 0, 0, 0.8);
+}
