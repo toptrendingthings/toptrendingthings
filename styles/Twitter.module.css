@@ -40,3 +40,30 @@
     padding: 1rem;
     color: rgba(0, 0, 0, 0.8);
 }
+
+.locationInput {
+    height: 2rem;
+    padding: 0px 10px;
+    font-size: large;
+    border-radius: 0.4rem;
+}
+
+.countryFilterWrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+}
+
+.countryFilterItem {
+    padding: 8px;
+    margin: 0.4rem 0.8rem 0.4rem 0;
+    background-color: #f8eded;
+    color: #2e2e2e;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    border-radius: 10px;
+}
+
+.countryFilterItem:hover {
+    background-color: #0070f3;
+    color: white;
+}

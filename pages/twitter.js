@@ -1,5 +1,8 @@
 import styles from '../styles/Twitter.module.css'
+
+import { useEffect, useState } from 'react';
 import Head from 'next/head'
+import WOEID_LIST from '../lib/woeid.json';
 
 export const getStaticProps = async () => {
     const URL = 'https://top-trend.herokuapp.com/twitter/topTrends?id=1'
@@ -13,16 +16,50 @@ export const getStaticProps = async () => {
 }
 
 const Twitter = ({ data }) => {
-    const trendList = (data[0] || {}).trends;
-    const place = (data[0] || {}).locations[0];
+    const [trendList, setTrendList] = useState((data[0] || {}).trends);
+    const [placeInput, setPlaceInput] = useState("Worldwide")
+    const [place, setPlace] = useState(WOEID_LIST[0])
+
+    const filterCountryList = (searchQuery) => {
+        let list = [];
+        const topCountries = ["United States", "India", "Japan", "Brazil", "Indonesia", "Mexico", "Philippines", "Saudi Arabia"];
+        if (!searchQuery) {
+            list = WOEID_LIST.filter(woed => topCountries.indexOf(woed.name) > -1);
+        }
+        if (searchQuery) {
+            list = WOEID_LIST.filter(woed => woed.name.toLowerCase().indexOf(searchQuery.toLowerCase()) > -1).reverse();
+        }
+        return list;
+    };
+
+    const fetchTrends = async (place) => {
+        const URL = `https://top-trend.herokuapp.com/twitter/topTrends?id=${place.woeid}`
+        const response = await fetch(URL);
+        const data = await response.json();
+        if (data && data[0].trends) setTrendList(data[0].trends);
+    }
+
+    useEffect(() => {
+        fetchTrends(place);
+        setPlaceInput(place.name)
+    }, [place]);
+
     return (
         <div>
             <Head>
-                <title>Twitter | Top Trending Things</title>
+                <title>Twitter | {place.name} | Top Trending Things</title>
                 <meta name="description" content="Top Trending Twitter Hastags" />
             </Head>
             <h2>Twitter Trends Now</h2>
-            <h3>Top Trending Twitter {place.name}</h3>
+            <h3>Top Trending Twitter <input
+                className={styles.locationInput}
+                value={placeInput}
+                onChange={(e) => { setPlaceInput(e.target.value) }}></input></h3>
+            <div className={styles.countryFilterWrapper}>
+                {filterCountryList(placeInput).map(_place => {
+                    return <div className={styles.countryFilterItem} key={_place.woeid} onClick={() => { setPlace(_place) }}>{_place.name}</div>;
+                })}
+            </div>
             <table className={styles.twitterTable}>
                 <thead>
                     <tr>
