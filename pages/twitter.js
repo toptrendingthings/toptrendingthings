@@ -23,11 +23,12 @@ const Twitter = ({ data }) => {
     const filterCountryList = (searchQuery) => {
         let list = [];
         const topCountries = ["United States", "India", "Japan", "Brazil", "Indonesia", "Mexico", "Philippines", "Saudi Arabia"];
-        if (!searchQuery) {
-            list = WOEID_LIST.filter(woed => topCountries.indexOf(woed.name) > -1);
-        }
         if (searchQuery) {
             list = WOEID_LIST.filter(woed => woed.name.toLowerCase().indexOf(searchQuery.toLowerCase()) > -1).reverse();
+        }
+
+        if (!searchQuery || searchQuery == "Worldwide" || (searchQuery && list.length == 0)) {
+            list = WOEID_LIST.filter(woed => topCountries.indexOf(woed.name) > -1);
         }
         return list;
     };

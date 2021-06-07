@@ -1,6 +1,7 @@
 
 .trendListRow {
     border: 1px solid #ccc;
+    background-color: #FFF;
 }
 
 .trendRank {
@@ -31,7 +32,7 @@
 }
 
 .trendListRow:nth-child(even) {
-    background-color: #f8eded57;
+    background-color: rgb(230, 227, 227);
 }
 
 .twitterFooterNote {
