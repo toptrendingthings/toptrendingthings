@@ -3,6 +3,7 @@ import styles from '../styles/Twitter.module.css'
 import { useEffect, useState } from 'react';
 import Head from 'next/head'
 import WOEID_LIST from '../lib/woeid.json';
+import * as gtag from '../lib/gtag';
 
 export const getStaticProps = async () => {
     const URL = 'https://top-trend.herokuapp.com/twitter/topTrends?id=1'
@@ -43,6 +44,12 @@ const Twitter = ({ data }) => {
     useEffect(() => {
         fetchTrends(place);
         setPlaceInput(place.name)
+        gtag.event({
+            action: "select_place",
+            category: "Twitter trends",
+            label: "Selected Place",
+            value: place.name
+        });
     }, [place]);
 
     return (
