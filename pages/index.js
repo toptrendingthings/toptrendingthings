@@ -27,15 +27,15 @@ export default function Home() {
           </a>
           </Link>
 
+          <Link href="/stocks"><a className={styles.card}>
+            <h2>Stocks &rarr;</h2>
+            <p>Stocks to Buy Today</p>
+          </a>
+          </Link>
+
           <a className={styles.card}>
             <h2>Youtube &rarr;</h2>
             <p>Top Trending Videos!</p>
-          </a>
-
-          <a className={styles.card}
-          >
-            <h2>Stocks &rarr;</h2>
-            <p>Top Gainer Stocks</p>
           </a>
 
           <a className={styles.card}
