@@ -36,3 +36,18 @@ footer {
   color: #777;
   border-top: 1px solid #eaeaea;
 }
+
+@media (max-width: 600px) { 
+  nav {
+    margin-bottom: 40px;
+  }
+
+  nav .logo {
+    width: 5rem;
+  }
+
+  footer {
+    padding: 15px 0;
+    margin-top: 30px;
+  }
+}

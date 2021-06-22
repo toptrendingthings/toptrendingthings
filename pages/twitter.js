@@ -59,10 +59,11 @@ const Twitter = ({ data }) => {
                 <meta name="description" content="Top Trending Twitter Hastags" />
             </Head>
             <h2>Twitter Trends Now</h2>
-            <h3>Top Trending Twitter <input
+            <div className={styles.countryFilterWrapper}>
+                <h3 className={styles.subTitle}>Top Trending Twitter Trends Hashtags in </h3> <input
                 className={styles.locationInput}
                 value={placeInput}
-                onChange={(e) => { setPlaceInput(e.target.value) }}></input></h3>
+                onChange={(e) => { setPlaceInput(e.target.value) }}></input></div>
             <div className={styles.countryFilterWrapper}>
                 {filterCountryList(placeInput).map(_place => {
                     return <div className={styles.countryFilterItem} key={_place.woeid} onClick={() => { setPlace(_place) }}>{_place.name}</div>;
@@ -81,7 +82,9 @@ const Twitter = ({ data }) => {
                         trendList.map((trend, index) => {
                             return <tr key={`trend` + index} className={styles.trendListRow}>
                                 <td className={styles.th}> <p className={styles.trendRank}>{index + 1}.</p></td>
-                                <td className={styles.th}> <p className={styles.trendName}>{trend.name}</p></td>
+                                <td className={styles.th}> 
+                                    <a href={trend.url} target="_blank" className={styles.trendName}>{trend.name}</a>
+                                </td>
                                 <td className={styles.th}> <p className={styles.trendVolume} data-tip={trend.tweet_volume}>{trend.tweet_volume || "Under 10K"}</p></td>
                             </tr>
                         })
