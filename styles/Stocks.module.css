@@ -5,3 +5,12 @@
     padding: 2rem;
     border-radius: 10px;
 }
+
+.footerNote {
+    text-align: initial;
+    border: 1px solid;
+    padding: 1rem;
+    color: rgba(0, 0, 0, 0.8);
+    font-size: 0.7rem;
+    margin-top: 40px;
+}
