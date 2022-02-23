@@ -7,7 +7,7 @@ export default function Home() {
     <div className={styles.container}>
       <Head>
         <title>Top Trending Things</title>
-        <meta name="description" content="Latest top trending things" />
+        <meta name="description" content="Here's the list of Top Trending Things from Twitter Trends to Top Stocks to Buy. Find information about the Twitter trends and volume. Find the top trending real life experience horror stories." />
       </Head>
 
       <main
@@ -23,44 +23,45 @@ export default function Home() {
         <div className={styles.grid}>
           <Link href="/twitter"><a className={styles.card}>
             <h2>Twitter &rarr;</h2>
-            <p>Top Trending Hashtags</p>
+            <h5>Top Trending Hashtags</h5>
           </a>
           </Link>
 
-          <Link href="/stocks"><a className={styles.card}>
+          {/* <Link href="/stocks"><a className={styles.card}>
             <h2>Stocks &rarr;</h2>
-            <p>Stocks to Buy Today</p>
+            <h5>Stocks to Buy Today</h5>
+          </a>
+          </Link> */}
+
+          <Link href="/horror"><a className={styles.card}>
+            <h2>Horror &rarr;</h2>
+            <h5>Real Life Paranormal Experiences</h5>
           </a>
           </Link>
 
-          <a className={styles.card}>
-            <h2>Youtube &rarr;</h2>
-            <p>Top Trending Videos!</p>
-          </a>
-
-          <a className={styles.card}
+          {/* <a className={styles.card}
           >
             <h2>Crypto &rarr;</h2>
-            <p>
+            <h5>
               Top Crypto Currency Gainers
-            </p>
+            </h5>
           </a>
 
           <a className={styles.card}
           >
             <h2>Instagram &rarr;</h2>
-            <p>
+            <h5>
               Top Reels Song
-            </p>
+            </h5>
           </a>
 
           <a className={styles.card}
           >
             <h2>Search Trends &rarr;</h2>
-            <p>
+            <h5>
               Top Google Search Trends
-            </p>
-          </a>
+            </h5>
+          </a> */}
         </div>
       </main>
     </div>
