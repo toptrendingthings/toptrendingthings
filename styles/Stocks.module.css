@@ -1,0 +1,17 @@
+.stockContainer {
+    border: 1;
+    background: #FFF;
+    padding: 1;
+    padding: 2rem;
+    border-radius: 10px;
+    line-height: 2rem;
+}
+
+.footerNote {
+    text-align: initial;
+    border: 1px solid;
+    padding: 1rem;
+    color: rgba(0, 0, 0, 0.8);
+    font-size: 0.7rem;
+    margin-top: 40px;
+}
